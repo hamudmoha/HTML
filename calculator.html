@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+
+<!-- 30 days of javascript on git -->
+
+<style>
+  
+  .calculator {
+    
+    width: 350px;
+    background-image: url("notepad++/image.jpg");
+    
+    /* ); */
+    margin: 50px ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #1d2e1a;
+  }
+  .calculator input.a {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .calculator input.b {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  /* .calculator output {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  } */
+  .calculator button {
+    width: 65px;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 13px;
+    margin-bottom: 10px;
+    margin-right: 3.7px;
+  }
+  .calculator button.equal {
+    width: 93%;
+    margin-top: 4px;
+    
+  }
+
+  .clear {
+    background-color: red;
+    width: 10px;
+
+  }
+  .calculator button.Clear {
+    background-color: grey;
+   width: 65px;
+   color: red;
+   margin-left: 185px;
+  }
+  .calculator button {
+
+    width: 65px; 
+    height: 30px;
+    padding: 5px;
+    /* margin-top: 2px; */
+  }
+
+  .calculator button.space{
+   margin-top: 10px; 
+  }
+
+ 
+ 
+</style>
+</head>
+<body>
+
+<div class="calculator">
+  <input class="a" type="text" id="screen" readonly>
+  <input class="b" type="text" id="screen" readonly>
+  <output  type="text" id="screen" readonly></output>
+  <br>
+  <button class="clear" onclick="clearScreen()">C</button>
+  <button class="Clear" onclick="backspace()">clear</button>
+  <br>
+  <button onclick="appendToScreen('7')">7</button>
+  <button onclick="appendToScreen('8')">8</button>
+  <button onclick="appendToScreen('9')">9</button>
+  <button onclick="appendToScreen('/')">/</button>
+  <button onclick="appendToScreen('4')">4</button>
+  <button onclick="appendToScreen('5')">5</button>
+  <button onclick="appendToScreen('6')">6</button>
+  <button onclick="appendToScreen('*')">*</button>
+  <button onclick="appendToScreen('1')">1</button>
+  <button onclick="appendToScreen('2')">2</button>
+  <button onclick="appendToScreen('3')">3</button>
+  <button onclick="appendToScreen('-')">-</button>
+  <button class="space">0</button>
+  <button onclick="appendToScreen('0')">0</button>
+  <button onclick="appendToScreen('.')"> . </button>
+  <button onclick="appendToScreen('+')">+</button>
+ 
+    <button onclick="calculate('=' )" class="equal">=</button>
+  
+</div>
+
+ <script>
+  function appendToScreen(value) {
+    document.getElementById("screen").value += value;
+  }
+
+  function clearScreen() {
+    document.getElementById("screen").value = ""; 
+  }
+
+  // react, next.js, angular front end fraworks
+  // node.js next.js, nestjs backend
+  // telwind, bootstrap, material UI, ....
+
+
+  function calculate() {
+    let result = eval(document.getElementById("screen").value);
+    document.getElementById("screen").value = result;
+  }
+
+  function backspace(){
+    const resValue = document.getElementById("screen").value;
+    document.getElementById("screen").value=resValue.slice(0, resValue.length-1);
+  }
+  
+</script>
+
+</body>
+</html>
